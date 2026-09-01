@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kxzv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0a0b;
+    --line: #38383c;
+    --line-strong: #55555a;
+    --text: #e6e5e2;
+    --text-muted: #8c8b90;
+    --blue: #9a9a9f;
+    --max: 1080px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+  ::selection{ background: var(--blue); color: #fff; }
+
+  .frame{
+    max-width: var(--max);
+    margin: 0 auto;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+
+  header.top{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .mark{
+    font-weight: 900;
+    font-size: 1.15rem;
+    text-transform: lowercase;
+    letter-spacing: 0.01em;
+  }
+
+  nav.top-links{
+    display: flex;
+    gap: 32px;
+    font-size: 0.9rem;
+    text-transform: lowercase;
+  }
+
+  nav.top-links a{ color: var(--text-muted); }
+  nav.top-links a:hover, nav.top-links a:focus-visible{ color: var(--blue); }
+
+  section{ border-bottom: 1px solid var(--line); }
+
+  h2.section-title{
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    text-transform: lowercase;
+    margin: 0;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* HERO */
+  .hero{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+  }
+
+  .hero-text{
+    padding: 90px 28px;
+    border-right: 1px solid var(--line);
+  }
+
+  .hero-text h1{
+    font-weight: 900;
+    font-size: clamp(3.2rem, 10vw, 6.5rem);
+    line-height: 0.92;
+    text-transform: lowercase;
+    margin: 0 0 26px;
+  }
+
+  .hero-text p{
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: var(--text-muted);
+    max-width: 32ch;
+    margin: 0;
+  }
+
+  .hero-block{
+    background: var(--bg);
+    position: relative;
+    min-height: 260px;
+    overflow: hidden;
+  }
+
+  .hero-block svg{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* WORK */
+  .work-row{
+    display: grid;
+    grid-template-columns: 90px 1fr 1.4fr;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .work-row:last-child{ border-bottom: none; }
+
+  .work-row > div{
+    padding: 22px 28px;
+    border-right: 1px solid var(--line);
+  }
+
+  .work-row > div:last-child{ border-right: none; }
+
+  .work-row .year{
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.9rem;
+  }
+
+  .work-row .title{
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-transform: lowercase;
+  }
+
+  .work-row a.title-link{ border-bottom: 1px solid transparent; }
+  .work-row a.title-link:hover, .work-row a.title-link:focus-visible{
+    border-bottom-color: var(--blue);
+    color: var(--blue);
+  }
+
+  .work-row .desc{
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* ABOUT */
+  .about{
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+  }
+
+  .about-text{
+    padding: 40px 28px;
+    border-right: 1px solid var(--line);
+  }
+
+  .about-text p{
+    max-width: 56ch;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+  }
+  .about-text p:last-child{ margin-bottom: 0; }
+
+  .facts{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .facts li{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.92rem;
+  }
+  .facts li:last-child{ border-bottom: none; }
+
+  .facts li span{ padding: 16px 20px; }
+  .facts li span:first-child{
+    color: var(--text-muted);
+    border-right: 1px solid var(--line);
+    text-transform: lowercase;
+  }
+
+  /* CONTACT */
+  .contact-inner{
+    padding: 60px 28px;
+    background: var(--blue);
+    color: #05070f;
+  }
+
+  .contact-inner p{
+    margin: 0 0 24px;
+    color: rgba(5,7,15,0.75);
+    text-transform: lowercase;
+  }
+
+  .email-link{
+    font-weight: 300;
+    font-size: clamp(0.8rem, 2.0vw, 1.2rem);
+    border-bottom: 2px solid #05070f;
+    display: inline-block;
+    padding-bottom: 4px;
+  }
+
+  .socials{
+    display: flex;
+    gap: 28px;
+    margin-top: 36px;
+    font-size: 0.92rem;
+    text-transform: lowercase;
+  }
+
+  .socials a{ border-bottom: 1px solid rgba(5,7,15,0.4); }
+  .socials a:hover, .socials a:focus-visible{ border-bottom-color: #05070f; }
+
+  footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 28px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    text-transform: none;
+  }
+
+  footer a:hover, footer a:focus-visible{ color: var(--blue); }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 760px){
+    nav.top-links{ display: none; }
+    .hero{ grid-template-columns: 1fr; }
+    .hero-text{ border-right: none; border-bottom: 1px solid var(--line); padding: 56px 22px; }
+    .hero-block{ min-height: 200px; }
+    .work-row{ grid-template-columns: 1fr; }
+    .work-row > div{ border-right: none; border-bottom: 1px solid var(--line); }
+    .work-row > div:last-child{ border-bottom: none; }
+    .about{ grid-template-columns: 1fr; }
+    .about-text{ border-right: none; border-bottom: 1px solid var(--line); }
+    h2.section-title{ padding: 18px 22px; }
+    footer{ flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <header class="top">
+    <a href="#top" class="mark">kxzv</a>
+    <nav class="top-links">
+     </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <h1>kxzv</h1>
+      <p>Design und Entwicklung. Klar. Funktional.</p>
+    </div>
+    <div class="hero-block">
+      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Geometrische Komposition aus Rechtecken in Schwarz und Grautönen">
+        <rect x="0" y="0" width="480" height="360" fill="#0a0a0b"/>
+        <rect x="160" y="0" width="320" height="190" fill="#9a9a9f"/>
+        <rect x="40" y="150" width="170" height="170" fill="#141416" stroke="#55555a" stroke-width="2"/>
+        <rect x="380" y="230" width="64" height="64" fill="#e6e5e2"/>
+        <line x1="160" y1="0" x2="160" y2="360" stroke="#55555a" stroke-width="2"/>
+        <line x1="160" y1="190" x2="480" y2="190" stroke="#55555a" stroke-width="2"/>
+        <line x1="0" y1="330" x2="480" y2="330" stroke="#38383c" stroke-width="1"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:none;">
+    <div class="contact-inner">
+      <h2 class="section-title" style="border:none; background:transparent; padding:0 0 15px; color:#05070f;">kontakt</h2>
+      <p>Projekte? Fragen? Einfach nur Hallo?</p>
+      <a class="email-link" >hello (at) kxzv.de</a>
+      <div class="socials">
+       
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>kxzv.de © 2026</span>
+  
+  </footer>
+
+</div>
+
+</body>
+</html>
