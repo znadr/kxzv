@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>kxzv</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg: #0a0a0b;
@@ -24,7 +21,8 @@
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: 'Archivo', sans-serif;
+    /* Datenschutzkonforme System-Schriften ohne Drittanbieter-Verbindung */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -92,13 +90,6 @@
     font-size: clamp(3.2rem, 10vw, 6.5rem);
     line-height: 0.92;
     text-transform: lowercase;
-    margin: 0 0 26px;
-  }
-
-  .hero-text p{
-    font-size: clamp(1rem, 1.6vw, 1.2rem);
-    color: var(--text-muted);
-    max-width: 32ch;
     margin: 0;
   }
 
@@ -231,14 +222,75 @@
     padding: 18px 28px;
     color: var(--text-muted);
     font-size: 0.82rem;
-    text-transform: none;
+    text-transform: lowercase;
   }
 
-  footer a:hover, footer a:focus-visible{ color: var(--blue); }
+  footer a:hover, footer a:focus-visible{ color: var(--blue); cursor: pointer; }
 
   a:focus-visible, button:focus-visible{
     outline: 2px solid var(--blue);
     outline-offset: 2px;
+  }
+
+  /* MODAL / POPUP STYLE FÜR RECHTSTEXTE */
+  .legal-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 11, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .legal-modal:target {
+    display: flex;
+  }
+
+  .legal-content {
+    background: #141416;
+    border: 1px solid var(--line);
+    max-width: 700px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 40px 28px;
+    position: relative;
+  }
+
+  .legal-content h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+    color: var(--text);
+  }
+
+  .legal-content h4 {
+    color: var(--blue);
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+  }
+
+  .legal-content p, .legal-content ul {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .legal-close {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+  }
+  .legal-close:hover {
+    color: var(--text);
   }
 
   @media (max-width: 760px){
@@ -269,10 +321,9 @@
   <section class="hero" id="top">
     <div class="hero-text">
       <h1>kxzv</h1>
-      <p>Design und Entwicklung. Klar. Funktional.</p>
     </div>
     <div class="hero-block">
-      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Geometrische Komposition aus Rechtecken in Schwarz und Grautönen">
+      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" xmlns="http://w3.org" role="img" aria-label="Geometrische Komposition aus Rechtecken in Schwarz und Grautönen">
         <rect x="0" y="0" width="480" height="360" fill="#0a0a0b"/>
         <rect x="160" y="0" width="320" height="190" fill="#9a9a9f"/>
         <rect x="40" y="150" width="170" height="170" fill="#141416" stroke="#55555a" stroke-width="2"/>
@@ -287,7 +338,7 @@
   <section id="contact" style="border-bottom:none;">
     <div class="contact-inner">
       <h2 class="section-title" style="border:none; background:transparent; padding:0 0 15px; color:#05070f;">kontakt</h2>
-      <p>Projekte? Fragen? Einfach nur Hallo?</p>
+      <p>Fragen? Einfach nur Hallo?</p>
       <a class="email-link" >hello (at) kxzv.de</a>
       <div class="socials">
        
@@ -297,10 +348,29 @@
 
   <footer>
     <span>kxzv.de © 2026</span>
-  
+    <a href="#datenschutz">datenschutz</a>
   </footer>
 
 </div>
 
-</body>
-</html>
+<!-- DATENSCHUTZ POPUP -->
+<div id="datenschutz" class="legal-modal">
+  <div class="legal-content">
+    <a href="#top" class="legal-close">✕</a>
+    <h3>datenschutzerklärung</h3>
+    
+    <h4>1. allgemeine hinweise und pflichtinformationen</h4>
+    <p>Der Betreiber dieser Seiten nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften (DSGVO) sowie dieser Datenschutzerklärung.</p>
+    <p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.</p>
+    
+    <h4>2. datenerfassung durch den hoster (github pages)</h4>
+    <p>Diese Website wird extern gehostet über den Dienst „GitHub Pages“ des Anbieters GitHub Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). Die Server von GitHub befinden sich in den USA. Deshalb werden Zugriffsdaten, die beim Aufruf der Webseite zwingend benötigt werden, in die USA übermittelt.</p>
+    <p>Der Hoster erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an GitHub übermittelt. Dies sind:</p>
+    <ul>
+      <li>Browsertyp und Browserversion</li>
+      <li>Verwendetes Betriebssystem</li>
+      <li>Referrer URL (die zuvor besuchte Seite)</li>
+      <li>Hostname des zugreifenden Rechners / IP-Adresse</li>
+      <li>Uhrzeit und Datum der Serveranfrage</li>
+      <li>Übertragene Datenmenge</li>
+    </ul>
